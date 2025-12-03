@@ -1,0 +1,125 @@
+/* Hero Section Styles */
+.hero {
+  padding: var(--spacing-4);
+}
+
+.hero__container {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--spacing-6);
+  border-radius: var(--radius-lg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero__container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(18, 18, 18, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  max-width: 800px;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.hero__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.033em;
+}
+
+@media (min-width: 480px) {
+  .hero__title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+.hero__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (min-width: 480px) {
+  .hero__description {
+    font-size: var(--font-size-base);
+  }
+}
+
+.hero__cta {
+  align-self: flex-start;
+}
+
+.hero__btn {
+  height: 40px;
+  padding: 0 var(--spacing-4);
+}
+
+@media (min-width: 480px) {
+  .hero__btn {
+    height: 48px;
+    padding: 0 var(--spacing-5);
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Hero Skeleton Loading */
+.hero--loading .hero__container {
+  background: var(--color-bg-card);
+  animation: pulse 2s infinite;
+}
+
+.hero--loading .hero__title,
+.hero--loading .hero__description {
+  background: var(--color-bg-card-hover);
+  border-radius: var(--radius-sm);
+  color: transparent;
+}
+
+.hero--loading .hero__title {
+  width: 80%;
+  height: 3rem;
+}
+
+.hero--loading .hero__description {
+  width: 60%;
+  height: 1.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
