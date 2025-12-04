@@ -20,7 +20,7 @@ function Footer() {
 
         <div className="footer__section">
           <h3 className="footer__section-title">Links</h3>
-          <a href="#" className="footer__link">Contact Us</a>
+          <a href="https://www.instagram.com/alizaminfatullayev/" className="footer__link">Contact Us</a>
           <a href="#" className="footer__link">Privacy Policy</a>
           <a href="#" className="footer__link">Terms of Service</a>
           <a href="#" className="footer__link">About</a>
