@@ -29,3 +29,12 @@ Thumbs.db
 # Vercel
 .vercel
 .env*.local
+
+# Server folder (using Vercel serverless functions instead)
+server/
+
+# Memory Bank
+memory-bank/
+
+# Agents
+AGENTS.md
