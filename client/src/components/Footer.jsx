@@ -1,6 +1,6 @@
 import '../styles/Footer.css';
 
-function Footer() {
+function Footer({ onAboutClick }) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -20,10 +20,10 @@ function Footer() {
 
         <div className="footer__section">
           <h3 className="footer__section-title">Links</h3>
-          <a href="https://www.instagram.com/alizaminfatullayev/" className="footer__link">Contact Us</a>
+          <a href="https://www.instagram.com/alizaminfatullayev/" target="_blank" rel="noopener noreferrer" className="footer__link">Contact Us</a>
           <a href="#" className="footer__link">Privacy Policy</a>
           <a href="#" className="footer__link">Terms of Service</a>
-          <a href="#" className="footer__link">About</a>
+          <button onClick={onAboutClick} className="footer__link footer__link--button">About</button>
         </div>
 
         <div className="footer__section">

@@ -71,6 +71,15 @@
   transition: color var(--transition-fast);
 }
 
+.footer__link--button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
 .footer__link:hover {
   color: var(--color-text);
 }

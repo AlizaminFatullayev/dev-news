@@ -5,6 +5,7 @@ import ArticleGrid from './components/ArticleGrid';
 import ArticleDetail from './components/ArticleDetail';
 import CategoryFilter from './components/CategoryFilter';
 import SearchResults from './components/SearchResults';
+import About from './components/About';
 import Footer from './components/Footer';
 import { useArticles, useFeaturedArticle, useTrendingArticles, useSearch } from './hooks/useArticles';
 import './styles/variables.css';
@@ -14,6 +15,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showAbout, setShowAbout] = useState(false);
 
   const { article: featuredArticle, loading: featuredLoading } = useFeaturedArticle();
   const { articles: latestArticles, loading: latestLoading, hasMore, loadMore } = useArticles(activeCategory);
@@ -30,22 +32,50 @@ function App() {
   const handleBackToHome = () => {
     setSelectedArticleId(null);
     setSearchQuery('');
+    setShowAbout(false);
   };
 
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
     setSelectedArticleId(null);
     setSearchQuery('');
+    setShowAbout(false);
   };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
     setSelectedArticleId(null);
+    setShowAbout(false);
   };
 
   const handleClearSearch = () => {
     setSearchQuery('');
   };
+
+  const handleShowAbout = () => {
+    setShowAbout(true);
+    setSelectedArticleId(null);
+    setSearchQuery('');
+    window.scrollTo(0, 0);
+  };
+
+  // If viewing About page
+  if (showAbout) {
+    return (
+      <div className="app">
+        <Header 
+          activeCategory={activeCategory} 
+          onCategoryChange={handleCategoryChange}
+          onSearch={handleSearch}
+          searchQuery={searchQuery}
+        />
+        <main className="main container">
+          <About onBack={handleBackToHome} />
+        </main>
+        <Footer onAboutClick={handleShowAbout} />
+      </div>
+    );
+  }
 
   // If viewing an article detail
   if (selectedArticleId) {
@@ -63,7 +93,7 @@ function App() {
             onBack={handleBackToHome}
           />
         </main>
-        <Footer />
+        <Footer onAboutClick={handleShowAbout} />
       </div>
     );
   }
@@ -129,7 +159,7 @@ function App() {
           )}
         </div>
       </main>
-      <Footer />
+      <Footer onAboutClick={handleShowAbout} />
     </div>
   );
 }
