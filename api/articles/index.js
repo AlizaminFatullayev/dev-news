@@ -1,5 +1,5 @@
-import { fetchLatestArticles, fetchArticlesByCategory } from './_lib/devto.js';
-import { getCacheKey, isCacheValid, getCache, setCache } from './_lib/cache.js';
+import { fetchLatestArticles, fetchArticlesByCategory } from '../_lib/devto.js';
+import { getCacheKey, isCacheValid, getCache, setCache } from '../_lib/cache.js';
 
 export default async function handler(req, res) {
   // Enable CORS
